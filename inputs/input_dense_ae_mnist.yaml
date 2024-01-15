@@ -1,0 +1,25 @@
+trainer: benchmarks-dense-ae-mnist
+# start the model training from scratch by 'start_new' or 'retrain' 
+init: start_new
+# inputs for set_model
+set_model:
+  features: [392, 196] 
+  weight_init: glorot_normal 
+  bias_init: zeros 
+  batch_normal: False 
+  activation: relu 
+  input_features: 784
+# inputs for configure_model 
+configure_model:
+  optimizer: adam 
+  loss: mae
+  # input these keywords based on choice of optimizer
+  learning_rate: 0.0001
+  beta_1: 0.9
+  beta_2: 0.999 
+# inputs for configure data
+configure_data:
+  batch_size: 256
+# inputs for model training
+train:
+  num_epochs: 2
